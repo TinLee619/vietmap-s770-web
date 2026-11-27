@@ -8,14 +8,14 @@
 <meta name="description" content="VIETMAP S770: 3 kênh ghi hình, trong 1 hành trình. Camera trước 2K, camera trong xe hồng ngoại, camera sau R04. Giá 4.390.000đ trọn bộ 3 camera, tặng kèm thẻ nhớ 64GB và VIETMAP LIVE Pro 6 tháng.">
 <meta property="og:title" content="VIETMAP S770 · 3 kênh ghi hình, trong 1 hành trình">
 <meta property="og:description" content="Camera hành trình 3 kênh: phía trước, trong xe và phía sau. 4.390.000đ trọn bộ 3 camera.">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_hero_set.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_hero_set.webp">
 <meta name="theme-color" content="#031327">
 <link rel="icon" href="https://static.ladipage.net/68947f19bbabe10012a14ddc/favicon-20260420083540-jwy3e.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_hero_set.webp">
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_hero_set.webp">
 <script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
@@ -82,9 +82,14 @@ a{color:inherit}
 .offer .pr{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .offer .pr b{font-size:clamp(30px,4vw,42px);font-weight:800;letter-spacing:-.02em;color:#fff}
 .offer .pr span{font-size:14px;color:rgba(232,238,245,.7)}
-.offer .gift{font-size:15px;color:#fff}
-.offer .gift::before{content:"🎁 "}
-.offer .when{font-size:14px;color:var(--cyan);font-weight:600}
+.giftrow{display:flex;align-items:center;gap:10px;margin-top:6px;padding:8px 14px 8px 8px;border-radius:16px;background:linear-gradient(100deg,rgba(255,196,77,.16),rgba(92,200,255,.08));border:1px solid rgba(255,196,77,.35);width:fit-content;max-width:100%}
+.giftrow .gth{flex:none;width:52px;height:52px;border-radius:12px;display:grid;place-items:center;overflow:hidden;transition:transform .3s var(--ease)}
+.giftrow .gth.sd{background:rgba(255,255,255,.08)}.giftrow .gth.vml{background:#e9e9e9}
+.giftrow .gth img{width:86%;height:86%;object-fit:contain}
+.giftrow .gth.vml img{width:100%;height:100%;object-fit:cover}
+.giftrow:hover .gth.sd{transform:rotate(-6deg)}.giftrow:hover .gth.vml{transform:rotate(6deg)}
+.giftrow p{font-size:14.5px;font-weight:600;color:#fff;line-height:1.35}
+.giftrow small{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#ffc94a}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .prod{position:relative;animation:blurIn 1.1s .25s both}
 @keyframes blurIn{from{opacity:0;filter:blur(14px);transform:scale(1.08)}to{opacity:1;filter:blur(0);transform:none}}
@@ -119,9 +124,9 @@ a{color:inherit}
 .m3d.ready .fb{opacity:0;pointer-events:none}
 .m3d::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(closest-side,rgba(40,90,140,.45),transparent);pointer-events:none}
 .stage[data-step="1"] .fb .s1,.stage[data-step="2"] .fb .s2,.stage[data-step="3"] .fb .s3{opacity:1;transform:none}
-.rear-chip{position:absolute;right:2%;bottom:10%;width:30%;opacity:0;transform:translateX(30px) rotate(-6deg);transition:opacity .6s,transform .8s var(--ease);pointer-events:none}
-.rear-chip img{filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
-.rear-chip small{display:block;text-align:center;font-size:11px;font-weight:700;color:var(--cyan);margin-top:4px}
+.rear-chip{position:absolute;right:0;top:50%;height:30%;display:flex;flex-direction:column;align-items:center;margin-top:-6%;opacity:0;transform:translateX(30px) rotate(-6deg);transition:opacity .6s,transform .8s var(--ease);pointer-events:none}
+.rear-chip img{height:100%;width:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.rear-chip small{position:absolute;top:100%;left:50%;transform:translateX(-50%);text-align:center;font-size:12px;font-weight:700;color:var(--cyan);margin-top:6px;white-space:nowrap}
 .stage[data-step="3"] .rear-chip{opacity:1;transform:none}
 .right{display:grid;gap:18px;align-content:center}
 /* màn hình máy */
@@ -210,12 +215,18 @@ a{color:inherit}
 .sg .pole{display:block;width:6%;height:70px;margin:0 auto;background:linear-gradient(#9aa3ad,#58606a)}
 .stage2[data-s="1"] .sg.s1,.stage2[data-s="2"] .sg.s2,.stage2[data-s="3"] .sg.s3{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .stage2[data-s="2"] .sg.s1,.stage2[data-s="3"] .sg.s1,.stage2[data-s="3"] .sg.s2{opacity:0;transform:translate(60%,-30%) scale(1.8)}
-.bub{position:absolute;left:50%;bottom:16vh;z-index:3;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);border-radius:18px;padding:12px 18px;box-shadow:0 18px 40px rgba(0,0,0,.4);max-width:calc(100% - 40px)}
+.bub{position:absolute;left:50%;bottom:14vh;z-index:3;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border:0;font:inherit;cursor:pointer;border-radius:18px;padding:10px 16px 10px 10px;box-shadow:0 18px 40px rgba(0,0,0,.4);max-width:calc(100% - 40px);text-align:left;transition:transform .25s var(--ease),box-shadow .25s}
+.bub:hover{transform:translateX(-50%) translateY(-3px);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.bub .pi{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--kv);color:#fff;font-size:13px;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,111,255,.5)}50%{box-shadow:0 0 0 10px rgba(31,111,255,0)}}
+.bub em{display:block;font-style:normal;font-size:11px;font-weight:600;color:var(--mut)}
+.bub.playing .pi{animation:none}
 .bub .wave{display:flex;gap:3px;align-items:center;height:22px}
-.bub .wave i{width:3px;height:100%;border-radius:3px;background:var(--kv);animation:wv 1s ease-in-out infinite}
+.bub .wave i{width:3px;height:100%;border-radius:3px;background:var(--kv);transform:scaleY(.3)}
+.bub.playing .wave i{animation:wv 1s ease-in-out infinite}
 .bub .wave i:nth-child(2){animation-delay:.15s}.bub .wave i:nth-child(3){animation-delay:.3s}.bub .wave i:nth-child(4){animation-delay:.45s}
 @keyframes wv{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
-.bub b{font-size:15px;white-space:nowrap}
+.bub b{display:block;font-size:15px;white-space:nowrap}
 .bub b span{display:none}
 .stage2[data-s="1"] .bub b .s1,.stage2[data-s="2"] .bub b .s2,.stage2[data-s="3"] .bub b .s3{display:inline;animation:softUp .4s both}
 .stage2 .illu{right:12px;top:auto;bottom:12px}
@@ -227,6 +238,9 @@ a{color:inherit}
 .l13 li::before{content:counter(n);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;background:rgba(92,200,255,.16);color:var(--cyan)}
 .l13 li.cam::before{background:rgba(255,184,0,.16);color:#ffc94a}
 .l13 small{display:block;font-size:11px;opacity:.6}
+.vb{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;border:0;background:var(--kv);color:#fff;font-size:11px;cursor:pointer;transition:transform .2s,background .2s}
+.vb:hover{transform:scale(1.1);background:var(--kv2)}
+.vb.playing{background:var(--ok)}
 
 /* ---------- KHỐI 4: xem lại + độ bền (nền sáng) ---------- */
 .lt{background:var(--light);color:var(--ink)}
@@ -252,8 +266,12 @@ a{color:inherit}
 .price{padding:20px 0 100px}
 .pcard{display:grid;grid-template-columns:1fr 1.1fr;gap:0;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 30px 70px rgba(11,27,44,.12)}
 .pvis{position:relative;background:radial-gradient(600px 400px at 50% 40%,rgba(31,111,255,.35),transparent 70%),var(--night);display:grid;place-items:center;padding:40px 20px;min-height:340px}
-.pvis img.m{width:78%;animation:float 5s ease-in-out infinite}
-.pvis img.r{position:absolute;right:8%;bottom:12%;width:26%;animation:float 5s 1.2s ease-in-out infinite}
+.duo{--h:clamp(150px,22vw,250px);display:flex;align-items:flex-end;justify-content:center;gap:clamp(14px,3vw,34px)}
+.duo figure{display:flex;flex-direction:column;align-items:center;gap:10px;animation:float 5s ease-in-out infinite}
+.duo figure.r{animation-delay:1.2s}
+.duo .m img{height:var(--h);width:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,.55))}
+.duo .r img{height:calc(var(--h) * .61);width:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,.55))}
+.duo figcaption{font-size:12px;font-weight:700;color:#cfeaff;text-align:center;white-space:nowrap}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .pbody{padding:34px 34px 30px}
 .pbody .lbl{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
@@ -262,14 +280,15 @@ a{color:inherit}
 .pl{list-style:none;display:grid;gap:10px;margin:18px 0}
 .pl li{display:flex;gap:10px;font-size:15px;line-height:1.5}
 .pl li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--kv) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
-.live{font-size:14px;color:var(--mut);margin-bottom:10px}
-.cdw{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:6px 0 16px}
-.cdw .cdl{font-size:13px;font-weight:600;color:var(--mut)}
-.dong-ho{display:flex;gap:8px}
-.dong-ho .o{width:62px;padding:8px 0 6px;border-radius:12px;background:var(--night);color:#fff;text-align:center}
-.dong-ho .o span{display:block;font-size:24px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
-.dong-ho .o i{display:block;font-style:normal;font-size:10px;opacity:.7}
-.onsale{font-weight:700;color:var(--ok)}
+.gifts{margin:18px 0 4px;padding:14px;border-radius:18px;background:linear-gradient(135deg,#fff7e6,#eef5ff);border:1px solid #f3dfb4}
+.gh{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#9a6a00;margin-bottom:10px}
+.gg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gi{display:flex;flex-direction:column;gap:2px;padding:10px;border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(11,27,44,.06);transition:transform .3s var(--ease),box-shadow .3s}
+.gi:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(11,27,44,.12)}
+.gimg{aspect-ratio:4/3;border-radius:10px;display:grid;place-items:center;overflow:hidden;margin-bottom:8px}
+.gimg.sd{background:radial-gradient(circle at 50% 40%,#2a3442,#0b1118)}.gimg.vml{background:#e9e9e9}
+.gimg.sd img{width:70%;height:auto}.gimg.vml img{width:100%;height:100%;object-fit:cover}
+.gi b{font-size:14px;line-height:1.3}.gi span{font-size:12px;color:var(--mut);line-height:1.4}
 .box{margin:6px 0 14px;border:1px solid var(--line);border-radius:14px;background:var(--light)}
 .box summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:700;font-size:14px}
 .box summary::-webkit-details-marker{display:none}
@@ -321,7 +340,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
   .steps{top:58px}
   .steps button{padding:7px 12px}
   .stage .m3d{height:auto;min-height:120px;order:0}
-  .rear-chip{width:26%;bottom:4%}
+  .rear-chip{right:2%;height:34%}
   .right{display:contents}
   .dev{order:1;padding:8px 8px 22px;border-radius:16px}
   .cards{order:2;min-height:150px}
@@ -343,7 +362,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
   .nav .btn{display:none}
 }
 @media (min-width:901px){.bar{display:none}}
-@media (max-width:380px){.feat{grid-template-columns:1fr}.dong-ho .o{width:54px}}
+@media (max-width:380px){.feat{grid-template-columns:1fr}}
 @media (max-height:700px) and (max-width:900px){.card p{display:none}.cards{min-height:96px}}
 /* giảm chuyển động hoặc không ghim được: nội dung tĩnh, không mất chữ */
 .static .pin,.static .pin2{height:auto}
@@ -356,7 +375,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
-<body data-base="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/">
+<body data-base="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/">
 
 <header class="nav" id="nav">
   <a href="#mo-dau"><img src="https://w.ladicdn.com/s450x350/68947f19bbabe10012a14ddc/logo-vietmap-wite-20260406014947-8wtxl.png" alt="VIETMAP" width="140" height="22"></a>
@@ -377,9 +396,11 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
       <p class="type">Camera hành trình 3 kênh: phía trước, trong xe và phía sau</p>
       <div class="offer">
         <div class="pr"><b>4.390.000đ</b><span>trọn bộ 3 camera</span></div>
-        <p class="gift">Tặng kèm thẻ nhớ 64GB và VIETMAP LIVE Pro 6 tháng.</p>
-        <p class="when" data-launch="before">Mở bán ngày 14/12/2026 tại hệ thống đại lý VIETMAP toàn quốc.</p>
-        <p class="when" data-launch="after" hidden>Đang mở bán tại hệ thống đại lý VIETMAP toàn quốc.</p>
+        <div class="giftrow">
+          <span class="gth sd"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/g_sd64.webp" alt="Thẻ nhớ VIETMAP 64GB" width="520" height="382"></span>
+          <span class="gth vml"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/g_vml.webp" alt="Thẻ VIETMAP LIVE" width="520" height="448"></span>
+          <p><small>Quà tặng kèm</small>Thẻ nhớ 64GB và VIETMAP LIVE Pro 6 tháng</p>
+        </div>
       </div>
       <div class="cta">
         <a class="btn" href="#dang-ky">Đăng ký tư vấn</a>
@@ -387,7 +408,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
       </div>
     </div>
     <div class="prod">
-      <img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_hero_set.webp" alt="Bộ camera hành trình VIETMAP S770: thân máy có camera trước, camera trong xe và camera sau R04" width="1100" height="825" fetchpriority="high">
+      <img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_hero_set.webp" alt="Bộ camera hành trình VIETMAP S770: thân máy có camera trước, camera trong xe và camera sau R04" width="1100" height="825" fetchpriority="high">
       <i class="lens a" aria-hidden="true"></i><i class="lens b" aria-hidden="true"></i><i class="lens c" aria-hidden="true"></i>
       <span class="tag c">Phía trước · 2K</span><span class="tag a">Trong xe · hồng ngoại</span><span class="tag b">Phía sau · R04</span>
     </div>
@@ -412,20 +433,20 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
       </div>
       <div class="m3d" id="m3dA">
         <div class="fb" aria-hidden="true">
-          <img class="s1" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_side.webp" alt="" loading="lazy">
-          <img class="s2" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_cabin.webp" alt="" loading="lazy">
-          <img class="s3" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_front.webp" alt="" loading="lazy">
+          <img class="s1" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_side.webp" alt="" loading="lazy">
+          <img class="s2" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_cabin.webp" alt="" loading="lazy">
+          <img class="s3" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_front.webp" alt="" loading="lazy">
         </div>
-        <div class="rear-chip"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_rear.webp" alt="Camera sau R04" loading="lazy" width="700" height="525"><small>Camera sau R04</small></div>
+        <div class="rear-chip"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_rear_c.webp" alt="Camera sau R04" loading="lazy" width="219" height="408"><small>Camera sau R04</small></div>
       </div>
       <div class="right">
         <div class="dev">
           <div class="scr" id="scr" data-step="1">
             <span class="rec"><i></i>REC</span>
             <span class="illu">Hình ảnh minh họa</span>
-            <div class="pane f"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_front_day.webp" alt="Khung hình camera trước: đường phố Việt Nam phía trước xe" loading="lazy" width="1280" height="720"><span class="lb">① Trước · 2K</span></div>
-            <div class="pane c"><img class="svc" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_cabin_service.webp" alt="Khung hình camera trong xe chạy dịch vụ: tài xế và khách ngồi sau" loading="lazy" width="1280" height="720"><img class="fam" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_cabin_family.webp" alt="Khung hình camera trong xe gia đình: bố mẹ phía trước, con ngồi ghế trẻ em hàng sau" loading="lazy" width="1280" height="720"><span class="lb">② Trong xe</span></div>
-            <div class="pane r"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_rear_day.webp" alt="Khung hình camera sau R04: đường phía sau xe nhìn qua kính sau" loading="lazy" width="1280" height="720"><span class="lb">③ Sau · R04</span></div>
+            <div class="pane f"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_front_day.webp" alt="Khung hình camera trước: đường phố Việt Nam phía trước xe" loading="lazy" width="1280" height="720"><span class="lb">① Trước · 2K</span></div>
+            <div class="pane c"><img class="svc" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_cabin_service.webp" alt="Khung hình camera trong xe chạy dịch vụ: tài xế và khách ngồi sau" loading="lazy" width="1280" height="720"><img class="fam" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_cabin_family.webp" alt="Khung hình camera trong xe gia đình: bố mẹ phía trước, con ngồi ghế trẻ em hàng sau" loading="lazy" width="1280" height="720"><span class="lb">② Trong xe</span></div>
+            <div class="pane r"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_rear_day.webp" alt="Khung hình camera sau R04: đường phía sau xe nhìn qua kính sau" loading="lazy" width="1280" height="720"><span class="lb">③ Sau · R04</span></div>
           </div>
           <span class="brand">VIETMAP</span><span class="model">S770</span>
         </div>
@@ -465,8 +486,8 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
         <div>
           <div role="tabpanel" id="tp-dv" aria-labelledby="tb-dv">
             <div class="cmp hint" data-cmp>
-              <img class="night" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_cabin_service_night.webp" alt="Khoang xe dịch vụ ban đêm, camera trong ghi bằng hồng ngoại" loading="lazy" width="1280" height="720">
-              <img class="day" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_cabin_service.webp" alt="Khoang xe dịch vụ ban ngày, màu thật" loading="lazy" width="1280" height="720">
+              <img class="night" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_cabin_service_night.webp" alt="Khoang xe dịch vụ ban đêm, camera trong ghi bằng hồng ngoại" loading="lazy" width="1280" height="720">
+              <img class="day" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_cabin_service.webp" alt="Khoang xe dịch vụ ban ngày, màu thật" loading="lazy" width="1280" height="720">
               <span class="t l">Ban ngày (màu thật)</span><span class="t r">Ban đêm (hồng ngoại)</span>
               <span class="illu">Hình ảnh minh họa</span>
               <i class="knob"></i>
@@ -475,8 +496,8 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
           </div>
           <div role="tabpanel" id="tp-gd" aria-labelledby="tb-gd" hidden>
             <div class="cmp" data-cmp>
-              <img class="night" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_cabin_family_night.webp" alt="Khoang xe gia đình ban đêm, camera trong ghi bằng hồng ngoại" loading="lazy" width="1280" height="720">
-              <img class="day" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_cabin_family.webp" alt="Khoang xe gia đình ban ngày, màu thật" loading="lazy" width="1280" height="720">
+              <img class="night" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_cabin_family_night.webp" alt="Khoang xe gia đình ban đêm, camera trong ghi bằng hồng ngoại" loading="lazy" width="1280" height="720">
+              <img class="day" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_cabin_family.webp" alt="Khoang xe gia đình ban ngày, màu thật" loading="lazy" width="1280" height="720">
               <span class="t l">Ban ngày (màu thật)</span><span class="t r">Ban đêm (hồng ngoại)</span>
               <span class="illu">Hình ảnh minh họa</span>
               <i class="knob"></i>
@@ -497,7 +518,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
   <div class="wrap play">
     <div class="play-grid">
       <div class="m3d" id="m3dB">
-        <div class="fb" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_front.webp" alt="" loading="lazy"></div>
+        <div class="fb" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_front.webp" alt="" loading="lazy"></div>
       </div>
       <div class="rv">
         <p class="eyebrow">Cầm máy trên tay</p>
@@ -513,7 +534,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
 <section class="signs" id="bien-bao">
   <div class="pin2" id="pin2">
     <div class="stage2" id="stage2" data-s="1">
-      <div class="bg" data-bg="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/ai_signs_bg.webp"></div>
+      <div class="bg" data-bg="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/ai_signs_bg.webp"></div>
       <div class="wrap txt">
         <h2 class="h2">Cảnh báo giao thông bằng giọng nói chạy offline</h2>
         <p>Dựa trên dữ liệu giao thông VIETMAP và chạy offline, nên trời mưa, đi đêm hay biển báo bị khuất máy vẫn nhắc. Anh/chị chọn được giọng 3 miền và bật tắt tùy ý.</p>
@@ -528,20 +549,21 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
       <div class="sg s3" aria-hidden="true">
         <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff"/><circle cx="50" cy="50" r="41" fill="none" stroke="#d71f26" stroke-width="11"/><g transform="translate(26 32)"><rect x="0" y="6" width="20" height="30" rx="5" fill="#111"/><rect x="28" y="6" width="20" height="30" rx="5" fill="#d71f26"/></g></svg><i class="pole"></i>
       </div>
-      <div class="bub" aria-live="polite">
+      <button type="button" class="bub" id="bub" aria-live="polite">
+        <span class="pi" aria-hidden="true">▶</span>
         <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-        <b><span class="s1">Nhắc tốc độ giới hạn tiếp theo</span><span class="s2">Phía trước vào khu dân cư</span><span class="s3">Khu vực cấm vượt</span></b>
-      </div>
+        <span class="bt"><b><span class="s1">Nhắc tốc độ giới hạn tiếp theo</span><span class="s2">Vào khu dân cư</span><span class="s3">Khu vực cấm vượt</span></b><em>Bấm nghe thử giọng nhắc</em></span>
+      </button>
       <span class="illu">Hình ảnh minh họa</span>
     </div>
   </div>
   <div class="wrap list13">
     <h3 class="rv">13 loại cảnh báo</h3>
     <ol class="l13">
-      <li class="rv">Nhắc tốc độ giới hạn tiếp theo</li>
-      <li class="rv d1">Vào khu dân cư</li>
+      <li class="rv">Nhắc tốc độ giới hạn tiếp theo<button type="button" class="vb" data-v="1" aria-label="Nghe giọng nhắc tốc độ giới hạn">▶</button></li>
+      <li class="rv d1">Vào khu dân cư<button type="button" class="vb" data-v="2" aria-label="Nghe giọng nhắc vào khu dân cư">▶</button></li>
       <li class="rv d2">Ra khỏi khu dân cư</li>
-      <li class="rv d3">Khu vực cấm vượt</li>
+      <li class="rv d3">Khu vực cấm vượt<button type="button" class="vb" data-v="3" aria-label="Nghe giọng nhắc khu vực cấm vượt">▶</button></li>
       <li class="rv">Hết khu vực cấm vượt</li>
       <li class="rv d1">Khu vực thường xuyên kiểm tra tốc độ</li>
       <li class="rv d2">Trạm thu phí</li>
@@ -562,7 +584,7 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
     <h2 class="h2 rv d1">Xem lại sau chuyến đi và độ bền máy</h2>
     <p class="lead rv d2" style="margin-top:12px">Kết nối điện thoại xem lại video khi ở gần xe, dùng pin siêu tụ điện bền bỉ và hỗ trợ thẻ nhớ tối đa 512GB.</p>
     <div class="rv-grid">
-      <div class="phone" id="phone"><div class="in"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/p_ar.webp" alt="Video AR trên VIETMAP LIVE: khung biển số và thang khoảng cách ước tính tới xe phía trước" loading="lazy"><span class="illu">Hình ảnh minh họa</span></div></div>
+      <div class="phone" id="phone"><div class="in"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/p_ar.webp" alt="Video AR trên VIETMAP LIVE: khung biển số và thang khoảng cách ước tính tới xe phía trước" loading="lazy"><span class="illu">Hình ảnh minh họa</span></div></div>
       <div>
         <div class="feat">
           <div class="ft rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg><h3>Kết nối Wi-Fi 6 và Bluetooth</h3><p>Mở VIETMAP REC hoặc VIETMAP LIVE bấm "Ok" để tự kết nối xem và tải video.</p></div>
@@ -583,29 +605,24 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
   <div class="wrap">
     <div class="pcard rv">
       <div class="pvis">
-        <img class="m" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_front.webp" alt="Mặt trước VIETMAP S770 với màn hình IPS 2.4 inch và 5 nút bấm" loading="lazy" width="700" height="525">
-        <img class="r" src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/t_rear.webp" alt="Camera sau R04 đi kèm" loading="lazy" width="700" height="525">
+        <div class="duo">
+          <figure class="m"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_front_c.webp" alt="Mặt trước VIETMAP S770 với màn hình IPS 2.4 inch và 5 nút bấm" loading="lazy" width="497" height="405"><figcaption>Thân máy: camera trước + trong xe</figcaption></figure>
+          <figure class="r"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/t_rear_c.webp" alt="Camera sau R04 đi kèm" loading="lazy" width="219" height="408"><figcaption>Camera sau R04</figcaption></figure>
+        </div>
       </div>
       <div class="pbody">
         <p class="lbl">Giá bán trọn bộ 3 camera</p>
         <p class="big">4.390.000đ<small>đã gồm camera sau R04</small></p>
-        <ul class="pl">
-          <li>Quà tặng kèm sản phẩm: thẻ nhớ 64GB và VIETMAP LIVE Pro 6 tháng (gắn vào số điện thoại kích hoạt S770).</li>
-          <li>Bảo hành 12 tháng kèm bảo hiểm trách nhiệm sản phẩm. 1 đổi 1 trong 30 ngày đầu nếu có lỗi phần cứng do nhà sản xuất.</li>
-        </ul>
-        <div data-launch="before">
-          <p class="live">Mở bán từ 14/12/2026 tại đại lý toàn quốc. Livestream mở bán lúc 12:00 ngày 14/12 trên fanpage VIETMAP.</p>
-          <div class="cdw">
-            <span class="cdl">Đếm ngược tới livestream mở bán 12:00 ngày 14/12</span>
-            <div class="dong-ho" data-countdown data-countdown-end="2026-12-14T12:00:00+07:00">
-              <div class="o"><span data-unit="day">00</span><i>Ngày</i></div>
-              <div class="o"><span data-unit="hour">00</span><i>Giờ</i></div>
-              <div class="o"><span data-unit="minute">00</span><i>Phút</i></div>
-              <div class="o"><span data-unit="second">00</span><i>Giây</i></div>
-            </div>
+        <div class="gifts">
+          <p class="gh">🎁 Quà tặng kèm sản phẩm</p>
+          <div class="gg">
+            <div class="gi"><div class="gimg sd"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/g_sd64.webp" alt="Thẻ nhớ VIETMAP 64GB" loading="lazy" width="520" height="382"></div><b>Thẻ nhớ 64GB</b><span>Có sẵn trong hộp, dùng ngay</span></div>
+            <div class="gi"><div class="gimg vml"><img src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/g_vml.webp" alt="Thẻ VIETMAP LIVE" loading="lazy" width="520" height="448"></div><b>VIETMAP LIVE Pro 6 tháng</b><span>Gắn vào số điện thoại kích hoạt S770</span></div>
           </div>
         </div>
-        <p class="live onsale" data-launch="after" hidden>Đang mở bán tại hệ thống đại lý VIETMAP toàn quốc.</p>
+        <ul class="pl">
+          <li>Bảo hành 12 tháng kèm bảo hiểm trách nhiệm sản phẩm. 1 đổi 1 trong 30 ngày đầu nếu có lỗi phần cứng do nhà sản xuất.</li>
+        </ul>
         <details class="box">
           <summary>Trong hộp có 12 món</summary>
           <ol>
@@ -632,8 +649,8 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
         <details><summary>Lắp S770 có phải đấu vào điện xe không?</summary><p>Không cần đấu điện xe. Máy cấp nguồn trực tiếp qua tẩu sạc 12V và cổng Type-C. Đại lý VIETMAP toàn quốc hỗ trợ lắp gọn dây và không ảnh hưởng xe.</p></details>
         <details><summary>Mua máy rồi có cần mua thêm thẻ nhớ không?</summary><p>Trong hộp đã tặng kèm sẵn thẻ nhớ 64GB để dùng ngay. Nếu muốn lưu được lâu hơn, máy hỗ trợ thẻ nhớ MicroSD dung lượng tối đa 512GB.</p></details>
         <details><summary>Chính sách bảo hành như thế nào?</summary><p>Máy được bảo hành chính hãng 12 tháng kèm bảo hiểm trách nhiệm sản phẩm, 1 đổi 1 trong 30 ngày đầu nếu có lỗi phần cứng do nhà sản xuất.</p></details>
-        <details><summary>Mua và lắp VIETMAP S770 ở đâu?</summary><p>Sản phẩm mở bán từ 14/12/2026 tại hệ thống đại lý VIETMAP toàn quốc. Anh/chị để lại số điện thoại ở form bên cạnh, đại lý gần nhất sẽ gọi tư vấn và hẹn lịch lắp.</p></details>
-        <details id="tvc"><summary>Xem TVC giới thiệu VIETMAP S770</summary><div class="vid"><video controls preload="none" playsinline poster="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/tvc_poster.webp" data-src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@0e70531/s770_tvc_720p.mp4"></video></div></details>
+        <details><summary>Mua và lắp VIETMAP S770 ở đâu?</summary><p>VIETMAP S770 bán tại hệ thống đại lý VIETMAP toàn quốc. Anh/chị để lại số điện thoại ở form bên cạnh, đại lý gần nhất sẽ gọi tư vấn và hẹn lịch lắp.</p></details>
+        <details id="tvc"><summary>Xem TVC giới thiệu VIETMAP S770</summary><div class="vid"><video controls preload="none" playsinline poster="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/tvc_poster.webp" data-src="https://cdn.jsdelivr.net/gh/TinLee619/vietmap-s770-web@be7abca/s770_tvc_720p.mp4"></video></div></details>
       </div>
     </div>
     <div class="fbox" id="dang-ky">
@@ -710,20 +727,15 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
   document.querySelectorAll('.grp button,[role=tab]').forEach(function(b){b.addEventListener('click',function(){setGroup(b.dataset.grp)})});
   setGroup(xe==='gia-dinh'?'gia-dinh':'dich-vu');
 
-  /* trước/sau giờ mở bán 12:00 14/12/2026 */
-  var LAUNCH=new Date('2026-12-14T12:00:00+07:00').getTime();
-  function launch(){var after=Date.now()>=LAUNCH;document.querySelectorAll('[data-launch]').forEach(function(e){e.hidden=(e.dataset.launch==='after')!==after})}
-  launch();setInterval(launch,30000);
 
-  /* đồng hồ đếm ngược (luật countdown LadiPage) */
-  document.querySelectorAll('[data-countdown]').forEach(function(c){
-    var end=new Date(c.dataset.countdownEnd).getTime();
-    function pad(n){return(n<10?'0':'')+n}
-    function tick(){var s=Math.max(0,Math.floor((end-Date.now())/1000));
-      var v={day:Math.floor(s/86400),hour:Math.floor(s%86400/3600),minute:Math.floor(s%3600/60),second:s%60};
-      c.querySelectorAll('[data-unit]').forEach(function(u){u.textContent=pad(v[u.dataset.unit])})}
-    tick();setInterval(tick,1000);
-  });
+  /* giọng nhắc thật (3 file từ PM, Tin thêm 27/11) */
+  var VOICE={1:B+'v_speed60.m4a',2:B+'v_residential.m4a',3:B+'v_no_overtake.m4a'},au=new Audio(),cur=null;
+  au.preload='none';
+  function stopV(){document.querySelectorAll('.playing').forEach(function(e){e.classList.remove('playing')})}
+  function playV(k,btn){au.pause();stopV();au.src=VOICE[k];au.currentTime=0;cur=btn;btn.classList.add('playing');au.play().catch(stopV)}
+  au.addEventListener('ended',stopV);
+  document.getElementById('bub').addEventListener('click',function(){playV(document.getElementById('stage2').dataset.s||1,this)});
+  document.querySelectorAll('.vb').forEach(function(b){b.addEventListener('click',function(){playV(b.dataset.v,b)})});
 
   /* hiện dần khi cuộn tới */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
