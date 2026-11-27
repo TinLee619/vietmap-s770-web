@@ -42,7 +42,7 @@ let model = null, center = new THREE.Vector3(), radius = 0.07, screenMat = null;
 const K = {
   road:   { th: 158, ph: 76, d: 0.95 },   // ① mặt sau: camera trước hướng ra đường
   cabin:  { th: -36, ph: 72, d: 0.95 },   // ② camera trong xe
-  screen: { th: 14,  ph: 80, d: 0.80 },   // ③ màn hình 3 ô
+  screen: { th: 14,  ph: 80, d: 0.98 },   // ③ màn hình 3 ô
   play:   { th: 30,  ph: 72, d: 0.82 },
 };
 // tiến độ cuộn p (0..1) -> góc nhìn: giữ, chuyển, giữ, chuyển, giữ
@@ -57,6 +57,30 @@ function placeCam(th, ph, d) {
   camera.position.set(center.x + R * Math.sin(p) * Math.sin(t), center.y + R * Math.cos(p), center.z + R * Math.sin(p) * Math.cos(t));
   camera.lookAt(center); invalidate();
 }
+function shiftView(f) {
+  const w = renderer.domElement.width, h = renderer.domElement.height;
+  if (!f) { camera.clearViewOffset(); return; }
+  camera.setViewOffset(w, h, w * f, 0, w, h);
+}
+// ảnh camera sau R04 đứng cạnh thân máy, cao bằng 0,61 thân máy (tỉ lệ đo trên ảnh render chính hãng S770_01_hero_full_set)
+const R04_RATIO = 0.61;
+let mbox = null;
+const chip = boxA.querySelector('.rear-chip');
+function placeRear() {
+  if (!chip || !mbox) return;
+  camera.updateMatrixWorld(); camera.updateProjectionMatrix();
+  const W = boxA.clientWidth, H = boxA.clientHeight;
+  const pts = [];
+  for (const x of [mbox.min.x, mbox.max.x]) for (const y of [mbox.min.y, mbox.max.y]) for (const z of [mbox.min.z, mbox.max.z]) {
+    const p = new THREE.Vector3(x, y, z).project(camera); pts.push({ x: (p.x + 1) / 2 * W, y: (1 - p.y) / 2 * H });
+  }
+  const top = Math.min(...pts.map((p) => p.y)), bot = Math.max(...pts.map((p) => p.y)), right = Math.max(...pts.map((p) => p.x));
+  const h = (bot - top) * 0.78 * R04_RATIO;   // hộp bao chiếu nghiêng cao hơn thân máy thật ~22%
+  chip.style.height = h + 'px';
+  chip.style.top = (bot - h - 20) + 'px';
+  chip.style.left = Math.min(W - h * 0.55, right + 6) + 'px';
+  chip.style.right = 'auto'; chip.style.marginTop = '0';
+}
 const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 function lerpAngle(a, b, t) { let d = b - a; while (d > 180) d -= 360; while (d < -180) d += 360; return a + d * t; }
 let scrollP = 0;
@@ -66,6 +90,10 @@ function applyScroll() {
   const [p0, a] = TRACK[i], [p1, b] = TRACK[i + 1];
   const t = ease(Math.min(1, Math.max(0, (scrollP - p0) / ((p1 - p0) || 1))));
   placeCam(lerpAngle(a.th, b.th, t), a.ph + (b.ph - a.ph) * t, a.d + (b.d - a.d) * t);
+  // bước ③: dời máy sang trái để chừa chỗ cho ảnh camera sau R04 đứng cạnh
+  const k3 = ease(Math.min(1, Math.max(0, (scrollP - 0.60) / 0.14)));
+  shiftView(0.18 * k3);
+  placeRear();
   // camera trong xe gật nhẹ ở bước ②
   const cab = model.getObjectByName('S770_CamCabin_Pivot');
   if (cab) { const k = Math.max(0, 1 - Math.abs(scrollP - 0.5) / 0.18); cab.rotation.x = THREE.MathUtils.degToRad(-14 * Math.sin(k * Math.PI / 2)); }
@@ -88,7 +116,7 @@ function showUI(i) {
 
 new GLTFLoader().setDRACOLoader(draco).load(B + 'S770_web.glb?v=14', (gltf) => {
   model = gltf.scene; scene.add(model);
-  const b = new THREE.Box3().setFromObject(model); b.getCenter(center);
+  const b = new THREE.Box3().setFromObject(model); b.getCenter(center); mbox = b.clone();
   radius = b.getSize(new THREE.Vector3()).length() / 2 * 1.04;
   controls.target.copy(center); controls.minDistance = radius * 0.8;
   // bóng mềm dưới máy
@@ -114,7 +142,7 @@ function attach(to) {
   to.appendChild(renderer.domElement);
   mode = to === boxB ? 'play' : 'scroll';
   controls.enabled = mode === 'play';
-  if (mode === 'play') { controls.autoRotate = true; controls.autoRotateSpeed = 2.4; if (model) placeCam(K.play.th, K.play.ph, K.play.d); controls.update(); }
+  if (mode === 'play') { shiftView(0); controls.autoRotate = true; controls.autoRotateSpeed = 2.4; if (model) placeCam(K.play.th, K.play.ph, K.play.d); controls.update(); }
   else { controls.autoRotate = false; applyScroll(); }
   resize();
 }
