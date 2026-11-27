@@ -29,7 +29,7 @@ renderer.domElement.style.touchAction = 'pan-y';
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(30, 1, 0.005, 10);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; controls.enablePan = false; controls.enabled = false;
+controls.enableDamping = true; controls.enablePan = false; controls.enableZoom = false; controls.enabled = false; // không bắt con lăn: trang vẫn cuộn khi chuột nằm trên khung 3D
 let dirty = true; const invalidate = () => { dirty = true; };
 controls.addEventListener('change', invalidate);
 
@@ -43,7 +43,7 @@ const K = {
   road:   { th: 158, ph: 76, d: 0.95 },   // ① mặt sau: camera trước hướng ra đường
   cabin:  { th: -36, ph: 72, d: 0.95 },   // ② camera trong xe
   screen: { th: 14,  ph: 80, d: 0.80 },   // ③ màn hình 3 ô
-  play:   { th: 30,  ph: 72, d: 1.00 },
+  play:   { th: 30,  ph: 72, d: 0.82 },
 };
 // tiến độ cuộn p (0..1) -> góc nhìn: giữ, chuyển, giữ, chuyển, giữ
 const TRACK = [[0, K.road], [0.26, K.road], [0.40, K.cabin], [0.60, K.cabin], [0.74, K.screen], [1, K.screen]];
