@@ -339,10 +339,59 @@ footer .fg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;al
   .pbody{padding:24px 20px}
   .fbox{position:static;padding:22px}
   .nav .btn{display:none}
+
+  /* tối ưu điện thoại 28/11 */
+  /* màn đầu: giá + nút nằm trong màn đầu cả trên máy màn thấp */
+  .hero{padding:68px 0 28px;min-height:100svh}
+  .hero .prod{width:min(80%,400px)}
+  .hero .prod img{max-height:32svh;width:auto;margin:0 auto}
+  .xe-line{font-size:13px;line-height:1.45;padding:7px 12px;border-radius:14px;margin:6px 0 12px}
+  .hero h1 .l1{font-size:15px;margin-bottom:4px}
+  .hero .type{margin-top:8px;font-size:14px;line-height:1.5}
+  .offer{margin-top:14px;gap:2px}
+  .offer .gift{font-size:14px;line-height:1.5}
+  .hero .cta{margin-top:18px;gap:10px;flex-wrap:nowrap}
+  .hero .cta .btn{padding:14px 12px;font-size:14px;white-space:nowrap}
+  .scrollcue{display:none}
+  /* khối ba kênh ghim: màn hình máy co theo chiều cao để thẻ chữ không bị cắt */
+  .steps button{padding:9px 12px}
+  .dev{width:min(100%,calc((100svh - 430px) * 1.33 + 16px));margin:0 auto}
+  .stage .m3d{min-height:96px}
+  .card h3{font-size:18px;line-height:1.3}
+  .cards{min-height:212px}
+  .grp button{padding:8px 14px}
+  /* 3D tương tác: bớt khoảng trống */
+  .play{padding:10px 0 64px}
+  .play .m3d{height:46svh}
+  .keys button{width:56px;height:48px}
+  /* biển báo: biển nằm giữa chữ và bong bóng, không đè chữ */
+  .stage2 .txt p{font-size:14px;line-height:1.55}
+  .sg{left:50%;top:60%;width:88px}
+  .sg .pole{height:44px}
+  .bub{bottom:calc(12svh + env(safe-area-inset-bottom))}
+  /* ô tính năng: 1 cột, icon bên trái, dễ đọc */
+  .feat{grid-template-columns:minmax(0,1fr);gap:10px}
+  .ft{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:14px;padding:14px 16px}
+  .ft svg{grid-row:span 2;margin:2px 0 0}
+  .ft p{font-size:14px;margin-top:2px}
+  .review{padding:72px 0 56px}
+  .rv-grid{gap:28px;margin-top:28px}
+  /* khối giá: không tràn ngang ở máy 360–375 px */
+  .pcard{grid-template-columns:minmax(0,1fr);border-radius:22px}
+  .gg{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .gifts{padding:12px}
+  .pbody .btn{width:100%}
+  .duo{--h:clamp(130px,40vw,200px)}
+  .duo figcaption{white-space:normal;max-width:150px}
+  /* hỏi đáp + form */
+  .faqf{padding:72px 0 80px}
+  .ff-grid{gap:32px}
+  .faq summary{padding:14px 16px}
+  form input,form select{font-size:16px}
 }
 @media (min-width:901px){.bar{display:none}}
-@media (max-width:380px){.feat{grid-template-columns:1fr}}
-@media (max-height:700px) and (max-width:900px){.card p{display:none}.cards{min-height:96px}}
+@media (max-width:380px){.hero h1 .l2{font-size:31px}.hero .cta .btn{padding:13px 10px;font-size:13.5px}}
+@media (max-height:700px) and (max-width:900px){.card p{display:none}.cards{min-height:136px}.hero .type{display:none}.chips{display:none}.stage2 .txt{top:58px}}
 /* giảm chuyển động hoặc không ghim được: nội dung tĩnh, không mất chữ */
 .static .pin,.static .pin2{height:auto}
 .static .stage,.static .stage2{position:relative;height:auto;min-height:0}
